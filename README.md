@@ -28,8 +28,6 @@ Read more about the idea behind GraphQL boilerplates [here](https://blog.graph.c
 
 ### Project structure
 
-![](https://imgur.com/95faUsa.png)
-
 | File name 　　　　　　　　　　　　　　| Description 　　　　　　　　<br><br>|
 | :--  | :--         |
 | `└── database ` (_directory_) | _Contains all files that are related to the Prisma database service_ |\
@@ -40,4 +38,4 @@ Read more about the idea behind GraphQL boilerplates [here](https://blog.graph.c
 | `　　├── schema.graphql` | The **application schema** defining the API exposed to client applications  |
 | `　　└── generated` (_directory_) | _Contains generated files_ |
 | `　　　　├── prisma-client` (_directory_) | The generated Prisma client  |
-| `       ├── prisma.graphql` | The generated prisma graphql schema |	
+| `　　　　├── prisma.graphql` | The generated prisma graphql schema |	
