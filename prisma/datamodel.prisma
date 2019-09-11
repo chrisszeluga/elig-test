@@ -1,0 +1,64 @@
+type Clinician {
+	id: ID! @id
+	created_at: DateTime! @createdAt
+	updated_at: DateTime! @updatedAt
+	birth_state: String
+	enrollment_id: String
+	enrollment_type: String
+	first_approval_date: DateTime
+	first_name: String
+	is_enrolled: Boolean @default(value: false)
+	last_approval_date: DateTime
+	last_name: String
+	middle_name: String
+	npi: Int!
+	pecos_id: String
+	practices: [Practice!] @relation(link: TABLE, name: "IndividualStatus")
+}
+
+type Practice {
+	id: ID! @id
+	created_at: DateTime! @createdAt
+	updated_at: DateTime! @updatedAt
+	enrollment_id: String
+	enrollment_type: String
+	first_approval_date: DateTime
+	is_enrolled: Boolean @default(value: false)
+	last_approval_date: DateTime
+	org_name: String
+	pecos_id: String
+	tin: Int!
+	tin_type: String
+	is_sole_proprietor: Boolean @default(value: false)
+	clinicians: [Clinician!] @relation(name: "IndividualStatus")
+	group_status: [GroupStatus!]
+}
+
+type IndividualStatus @RelationTable {
+	id: ID! @id
+	clinician: Clinician!
+	practice: Practice!
+	created_at: DateTime! @createdAt
+	updated_at: DateTime! @updatedAt
+	year: Int!
+	run: Int!
+	has_aci_hardship: Boolean @default(value: false)
+	has_extreme_hardship: Boolean @default(value: false)
+	has_ia_study: Boolean @default(value: false)
+	is_hospital_based: Boolean @default(value: false)
+	is_low_volume: Boolean @default(value: false)
+}
+
+type GroupStatus @RelationTable {
+	id: ID! @id
+	created_at: DateTime! @createdAt
+	updated_at: DateTime! @updatedAt
+	year: Int!
+	run: Int!
+	has_aci_hardship: Boolean @default(value: false)
+	has_extreme_hardship: Boolean @default(value: false)
+	has_ia_study: Boolean @default(value: false)
+	is_hospital_based: Boolean @default(value: false)
+	is_low_volume: Boolean @default(value: false)
+	practice: Practice! @relation(link: INLINE)
+}

@@ -1,0 +1,8 @@
+# import Clinician, ClinicianWhereUniqueInput, ClinicianOrderByInput, Practice, PracticeWhereUniqueInput, PracticeOrderByInput, GroupStatus, GroupStatusConnection, GroupStatusWhereInput from './generated/prisma.graphql'
+
+type Query {
+	clinician(where: ClinicianWhereUniqueInput!): Clinician
+	clinicians(where: ClinicianWhereInput, orderBy: ClinicianOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Clinician]!
+	practice(where: PracticeWhereUniqueInput!): Practice
+  	practices(where: PracticeWhereInput, orderBy: PracticeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Practice]!
+}

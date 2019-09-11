@@ -1,0 +1,41 @@
+mutation {
+	clinician: createClinician(
+		data: {
+			birth_state: "MD"
+			enrollment_id: "1234"
+			enrollment_type: "I"
+			first_approval_date: "2015-11-22"
+			first_name: "Chris"
+			is_enrolled: true
+			last_approval_date: "2017-11-22"
+			last_name: "Test"
+			middle_name: "Middle"
+			npi: 1234567890
+			pecos_id: "123"
+			practices: {
+				create: {
+					enrollment_id: "1234"
+					enrollment_type: "P"
+					first_approval_date: "2015-11-22"
+					is_enrolled: true
+					last_approval_date: "2017-11-22"
+					org_name: "Test Org2"
+					pecos_id: "1234"
+					tin: 987654321
+					tin_type: "S"
+					is_sole_proprietor: false
+					group_status: {
+						create: {
+							year: 2019
+							run: 3
+							has_aci_hardship: false
+							is_hospital_based: true
+						}
+					}
+				}
+			}
+		}
+	) {
+		id
+	}
+}
